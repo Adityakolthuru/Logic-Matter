@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Scores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Scores</h1>
+        <label for="subject">Select Subject:</label>
+        <select id="subject" onchange="applyFilter()">
+            <option value="English">English</option>
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="SocialScience">Social Science</option>
+        </select>
+
+        <div id="filter-options">
+            <input type="radio" name="filter" value="Above" id="filter-above" onclick="toggleFilterInputs()"> Above
+            <input type="radio" name="filter" value="Below" id="filter-below" onclick="toggleFilterInputs()"> Below
+            <input type="radio" name="filter" value="Between" id="filter-between" onclick="toggleFilterInputs()"> Between
+        </div>
+
+        <div id="filter-inputs">
+            <input type="number" id="min-value" placeholder="Enter value" style="display:none">
+            <input type="number" id="max-value" placeholder="Enter second value" style="display:none">
+        </div>
+
+        <button onclick="applyFilter()">Filter</button>
+        <button onclick="clearFilter()">Clear</button>
+
+        <table id="student-table">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">S.No</th>
+                    <th onclick="sortTable(1)">Name</th>
+                    <th onclick="sortTable(2)">English</th>
+                    <th onclick="sortTable(3)">Maths</th>
+                    <th onclick="sortTable(4)">Science</th>
+                    <th onclick="sortTable(5)">Social Science</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
